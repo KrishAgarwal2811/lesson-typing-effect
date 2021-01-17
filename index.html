@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson - Typing Effect</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Learn how to make a typing effect in your website in seconds with HTML, CSS and vanilla JS without using any libraries."
+    />
+    <meta
+      name="keywords"
+      content="Typing-effect, async-await, promises, lesson, tutorial, how-to, vanilla-js,  HTML, CSS, JavaScript"
+    />
+
+    <!--Syntax Highliter CSS Link-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/tomorrow-night.min.css"
+    />
+    <!--Syntax Highliter JS Link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./app.js"></script>
+  </head>
+  <body class="loading">
+    <div id="holder"><div id="loader"></div></div>
+    <section>
+      <h1>How to make typing effect</h1>
+
+      <b id="demo" onclick="start()" class="button">Request demo</b>
+      <div id="box"></div>
+
+      <p>
+        We will achive the typing effect with the help of vanilla javascript.
+      </p>
+
+      <p>
+        This code will help you to fire the effect when the page loads without
+        any use of buttons.
+      </p>
+
+      <p>Fist of all select your element with js.</p>
+      <pre><code>
+  window.onload = () => {
+    const elem = document.querySelector("#box");
+  }
+        </code></pre>
+
+      <p>
+        Covering it in window.onload so that we wont get any error. Otherwise
+        the elem's value could be null.
+      </p>
+
+      <p>
+        Now make a variable to store your string which you want to be typed.
+      </p>
+      <pre><code>
+  const str = "Hello everyone I want this text to be typed out =)";
+        </code></pre>
+
+      <p>
+        Now we will iterate through the str variable i.e. we will loop through
+        each character of the string to type each character.
+      </p>
+
+      <p>
+        Start a for loop (or while loop which you favour but here we will use
+        for loop).
+      </p>
+
+      <pre><code>
+  window.onload = () => {
+    • • •
+    for (let i = 0; i < str.length; i++) {
+      let character = str.charAt(i);
+    }
+  }
+        </code></pre>
+
+      <p>
+        Here str.charAt(i) will give us the charcter present in the i<sup
+          >th</sup
+        >
+        position. So in every iteration we will get each character one by one.
+      </p>
+
+      <p>Now we will finally write the string into the box.</p>
+
+      <pre><code>
+  window.onload = () => {
+    • • •
+      let character = str.charAt(i);
+      elem.textContent += character;
+    }
+  }
+        </code></pre>
+
+      <p>
+        We are almost done. Till now you will get the text written instantly and
+        wont get any animation. For getting the anination you need to add a
+        delay.
+      </p>
+
+      <p>
+        For adding a delay we will use <b>Promises</b> and
+        <b>async await</b> for adding a delay.
+      </p>
+
+      <p>
+        Now we will define a function to add a delay. Make sure to intitialise
+        the function before window.onload function as we are using arrow
+        function. This way to use promises is inspired by Mike Sir.
+      </p>
+
+      <pre><code>
+  // Taking milli seconds as argument
+  const pause = (ms) => {
+    return new Promise(resolve => {
+      // Resolving the Promise after the given time
+      setTimeout(resolve, ms);
+    });
+  }
+        </code></pre>
+
+      <p>Now we will make our window.onload function async to use await.</p>
+
+      <pre><code>
+   window.onload = async () => {
+    • • •
+  }
+        </code></pre>
+
+      <p>
+        Now call the pause function inside the loop to get a delay. Change the
+        value pased in pause function to change the speed.
+      </p>
+
+      <pre><code>
+   window.onload = async () => {
+    • • • 
+      elem.textContent += character;
+      await pause(100);
+    • • •
+  }
+        </code></pre>
+
+      <p>Congratulations you have made it.</p>
+
+      <p>Final full code :-</p>
+
+      <pre><code>
+ // Taking milli seconds as argument
+  const pause = (ms) => {
+    return new Promise(resolve => {
+     // Resolving the Promise after the given time
+     setTimeout(resolve, ms);
+    });
+  }
+        
+  window.onload = async () => {
+    const elem = document.querySelector("#box");
+    const str = "Hello everyone I want this text to be typed out =)";
+    for (let i = 0; i < str.length; i++){
+      let character = str.charAt(i);
+      elem.textContent += character;
+      await pause(100);
+    }
+  }
+        </code></pre>
+      <!-- <br />
+      <a href="https://code.sololearn.com/WXYV1s9r5Qu4/?ref=app" class="button"
+        ><b>Example</b></a
+      > -->
+      <p>Thanks for visiting =)</p>
+      <p>Hope you learnt something new....</p>
+
+      <footer>
+        &copy; <a href="https://github.com/KrishAgarwal2811">Krish</a>
+      </footer>
+    </section>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </body>
+</html>

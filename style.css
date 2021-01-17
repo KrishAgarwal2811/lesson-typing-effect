@@ -1,0 +1,158 @@
+body,
+html {
+  background: rgb(240, 240, 225);
+  /* width:100vw;
+  height:100%; */
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
+  font-family: "Raleway", sans-serif;
+}
+
+.loading {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#holder {
+  width: 98%;
+  height: 98%;
+  z-index: 99999;
+  position: absolute;
+  background-color: #efddda;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dimesion: clamp(5px, 20vw, 250px);
+}
+
+#loader {
+  width: var(--dimesion);
+  height: var(--dimesion);
+  border: 8px solid rgb(80, 140, 250);
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  animation: load 1s linear infinite;
+}
+
+@keyframes load {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+section {
+  display: none;
+}
+
+h1,
+h2,
+#demo,
+footer {
+  font-family: "Quicksand", sans-serif;
+}
+
+.button {
+  font-size: 1em;
+  border: 1px solid grey;
+  padding: 15px;
+  border-radius: 2px;
+  background: rgba(180, 180, 180, 0.2);
+  margin: 20px auto 20px auto;
+  display: block;
+  width: auto;
+}
+
+/*
+
+@keyframes animate{
+  0%, 100%{
+      font-size:1em;
+  }
+  50% {
+      font-size:1.2em;
+  }
+}
+
+*/
+
+pre,
+code {
+  border: none !important;
+  outline: none !important;
+  border-radius: 15px;
+  font-size: 1.2em;
+}
+
+/*  SCROLL BAR STYLING FOR THE PAGE */
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  width: 100%;
+  border-radius: 15px;
+  background: #888;
+}
+
+/* SCROLL BAR STYLING ONLY FOR CODE SNIPPETS */
+
+code::-webkit-scrollbar,
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+code::-webkit-scrollbar-thumb,
+pre::-webkit-scrollbar-thumb {
+  height: 100%;
+  border-radius: 15px;
+  background: grey;
+}
+
+#box {
+  font-weight: 700;
+}
+.wrap-text {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  padding-left: clamp(5px, 5vh, 100px);
+}
+
+footer {
+  width: 100;
+  height: auto;
+  background: #4443;
+  /* color:rgb(28, 140, 240);*/
+  color: black;
+  font-size: 1.5em;
+  z-index: 2;
+  margin-left: -1vw;
+  text-align: center;
+  padding: 2vw;
+  border-radius: 5px;
+  margin-top: 8vw;
+}
+a {
+  text-decoration: none;
+  color: black !important;
+}
